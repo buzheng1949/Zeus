@@ -13,9 +13,9 @@ import java.net.InetSocketAddress;
  */
 public class ZeusTest {
 
-    public static void main(String[] args) throws Exception{
-        ServiceCenter serviceCenter = new ServiceCenter();
-        serviceCenter.register(ZeusApi.class,ZeusApiImpl.class);
+    public static void main(String[] args) throws Exception {
+        ServiceCenter serviceCenter = ServiceCenter.getServiceCenterInstance();
+        serviceCenter.register(ZeusApi.class, ZeusApiImpl.class);
         serviceCenter.start();
     }
 }

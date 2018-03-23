@@ -12,6 +12,19 @@ import java.util.concurrent.*;
  */
 public class ServiceCenter implements Server {
 
+    private ServiceCenter() {
+    }
+
+    private static ServiceCenter serviceCenter;
+
+    static {
+        serviceCenter = new ServiceCenter();
+    }
+
+    public static ServiceCenter getServiceCenterInstance() {
+        return serviceCenter;
+    }
+
     private boolean isEndLoop = false;
 
     /**
