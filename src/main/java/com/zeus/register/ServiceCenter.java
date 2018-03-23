@@ -1,6 +1,8 @@
 package com.zeus.register;
 
 import com.zeus.task.Task;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -10,6 +12,7 @@ import java.util.concurrent.*;
 /**
  * Created by buzheng on 18/3/23.
  */
+@Component
 public class ServiceCenter implements Server {
 
     private ServiceCenter() {
@@ -37,6 +40,15 @@ public class ServiceCenter implements Server {
      */
     public static final ConcurrentHashMap<String, Class<? extends IRpcService>> registerFactory = new ConcurrentHashMap<>();
 
+    @Override
+    public void destroy() throws Exception {
+        stop();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        start();
+    }
 
     @Override
     public void start() throws IOException {

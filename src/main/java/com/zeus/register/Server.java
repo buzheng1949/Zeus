@@ -1,11 +1,14 @@
 package com.zeus.register;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 import java.io.IOException;
 
 /**
  * Created by buzheng on 18/3/23.
  */
-public interface Server {
+public interface Server extends InitializingBean, DisposableBean {
 
     /**
      * 服务端端口
