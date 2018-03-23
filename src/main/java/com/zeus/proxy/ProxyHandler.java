@@ -45,7 +45,6 @@ public class ProxyHandler<T extends IRpcService> implements InvocationHandler {
             outputStream.writeObject(args);
             outputStream.flush();
             inputStream = new ObjectInputStream(socket.getInputStream());
-            return inputStream.readObject();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -54,6 +53,6 @@ public class ProxyHandler<T extends IRpcService> implements InvocationHandler {
             }
 
         }
-        return null;
+        return inputStream.readObject();
     }
 }
