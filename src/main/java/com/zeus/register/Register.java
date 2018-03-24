@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by buzheng on 18/3/23.
  */
-public interface Server extends InitializingBean, DisposableBean {
+public interface Register extends InitializingBean, DisposableBean {
 
     /**
      * 服务端端口

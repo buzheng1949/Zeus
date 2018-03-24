@@ -1,7 +1,7 @@
 package com.zeus.task;
 
-import com.zeus.register.ServiceCenter;
-import org.springframework.util.Assert;
+import com.zeus.register.Register;
+import com.zeus.register.RegisterCenter;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -32,7 +32,7 @@ public class Task implements Runnable {
             String methodName = inputStream.readUTF();
             Class<?>[] parameterTypes = (Class<?>[]) inputStream.readObject();
             Object[] arguments = (Object[]) inputStream.readObject();
-            Class<?> serviceProvider = ServiceCenter.registerFactory.get(serviceName);
+            Class<?> serviceProvider = RegisterCenter.registerFactory.get(serviceName);
             Method method = serviceProvider.getMethod(methodName, parameterTypes);
             Object result = method.invoke(serviceProvider.newInstance(), arguments);
             outputStream = new ObjectOutputStream(client.getOutputStream());
