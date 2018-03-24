@@ -11,9 +11,10 @@ import java.util.concurrent.*;
 
 /**
  * Created by buzheng on 18/3/23.
+ * 模拟zookeeper做一个配置中心 实现服务注册功能
  */
 @Component
-public class ServiceCenter implements Server {
+public class RegisterCenter implements Register {
 
     private boolean isEndLoop = false;
 
